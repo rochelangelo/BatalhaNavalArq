@@ -28,9 +28,10 @@ public class ClienteBn {
         ObjectInputStream resultado = new ObjectInputStream(cliente.getInputStream());
         ObjectOutputStream dados = new ObjectOutputStream(cliente.getOutputStream());
         
+        
         Scanner teclado = new Scanner(System.in);
         
-        
+        String tabela = dados.read();
         
         while(!teclado.equals("sair")){
             
