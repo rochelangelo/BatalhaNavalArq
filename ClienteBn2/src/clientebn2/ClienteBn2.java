@@ -3,41 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clientebn;
+package clientebn2;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  *
- * @author 20141D12GR0505
+ * @author corona
  */
-public class ClienteBn {
+public class ClienteBn2 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws UnknownHostException, IOException {
-        new ClienteBn("127.0.0.1", 1234).execulta();
+        new ClienteBn2("127.0.0.1", 1234).execulta();
     }
     
     private String host;
     private int porta;
 
-    public ClienteBn(String host, int porta) {
+    public ClienteBn2(String host, int porta) {
         this.host = host;
         this.porta = porta;
     }
     
     public void execulta() throws UnknownHostException, IOException{
         Socket cliente = new Socket(host, porta);
-        System.out.println("Jogador1 conecetado ao servidor!");
+        System.out.println("Jogador2 conecetado ao servidor!");
         
         Recebedor recebedor = new Recebedor(cliente.getInputStream());
         new Thread(recebedor).start();
@@ -55,22 +52,3 @@ public class ClienteBn {
     }
     
 }
-
-
-
-//        
-//        ObjectInputStream resultado = new ObjectInputStream(cliente.getInputStream());
-//        ObjectOutputStream dados = new ObjectOutputStream(cliente.getOutputStream());
-//        
-//        
-//        Scanner teclado = new Scanner(System.in);
-//        
-//        String tabela = dados.read();
-//        
-//        while(!teclado.equals("sair")){
-//            
-//            resultado.close();
-//            dados.close();
-//            cliente.close();
-//            
-//        }
