@@ -56,6 +56,7 @@ public class ClienteBn {
 }
 
 
+
 //        
 //        ObjectInputStream resultado = new ObjectInputStream(cliente.getInputStream());
 //        ObjectOutputStream dados = new ObjectOutputStream(cliente.getOutputStream());
