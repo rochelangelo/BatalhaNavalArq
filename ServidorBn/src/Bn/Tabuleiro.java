@@ -5,6 +5,7 @@
  */
 package Bn;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -65,13 +66,18 @@ public class Tabuleiro {
     }
     
     public static String exibirTabuleiro(){
-        System.out.println("----BATALHA NAVAL----\n");
+        
+        
+        System.out.println("-------------------BATALHA NAVAL"+
+                "-------------------\n");
         char letraColuna = 65; //65 é o numero do caracter a
         String letrasTab = "   ";
         for(int i = 0 ; i < largura ; i++){
             letrasTab += (letraColuna++) + " ";
         }
         System.out.println(letrasTab);
+        String tabela = "";
+        int x = 0;
         String linhaTab = "";
         int numeroLinha = 1;
         int[][] tab = retornarTabuleiroComNavios();
@@ -97,11 +103,19 @@ public class Tabuleiro {
                         break;
                 }
             }
-            System.out.println(linhaTab);
+            if (x < 24){
+                tabela = tabela + linhaTab + "\n";
+                x++;
+            }
+            
         }
-        System.out.println(letrasTab);
+        String tabuleiro = tabela + letrasTab;
         
-        return "Tabela";
+        return tabuleiro;
+        
     }
     
+    public static void main(String[] args) {
+        System.out.println(exibirTabuleiro());
+    }
 }
