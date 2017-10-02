@@ -114,8 +114,4 @@ public class Tabuleiro {
         return tabuleiro;
         
     }
-    
-    public static void main(String[] args) {
-        System.out.println(exibirTabuleiro());
-    }
 }

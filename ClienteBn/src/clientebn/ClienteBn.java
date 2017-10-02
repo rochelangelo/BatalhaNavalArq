@@ -5,6 +5,10 @@
  */
 package clientebn;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,50 +17,52 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.net.Socket;
+import javax.swing.*;
 
 /**
  *
  * @author 20141D12GR0505
  */
-public class ClienteBn {
+public class ClienteBn extends JFrame implements ActionListener, KeyListener {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws UnknownHostException, IOException {
-        new ClienteBn("127.0.0.1", 1234).execulta();
-    }
-    
-    private String host;
-    private int porta;
-
-    public ClienteBn(String host, int porta) {
-        this.host = host;
-        this.porta = porta;
-    }
-    
-    public void execulta() throws UnknownHostException, IOException{
-        Socket cliente = new Socket(host, porta);
-        System.out.println("Jogador1 conecetado ao servidor!");
-        
-        Recebedor recebedor = new Recebedor(cliente.getInputStream());
-        new Thread(recebedor).start();
-        
-        Scanner teclado = new Scanner(System.in);
-        PrintStream saida = new PrintStream(cliente.getOutputStream());
-        
-        while(teclado.hasNextLine()){
-            saida.println(teclado.nextLine());
-        }
-        
-        saida.close();
-        teclado.close();
-        cliente.close();
-    }
+    private static final long serialVersionUID = 1L;
+    private JTextArea texto;
+    private JTextField txtMsg;
+    private JButton btnSend;
+    private JButton btnSair;
+    private JLabel lblHistorico;
+    private JLabel lblMsg;
+    private JPanel pnlContent;
+    private Socket socket;
+    private OutputStream ou;
+    private Writer ouw;
+    private BufferedWriter bfw;
+    private JTextField txtIP;
+    private JTextField txtPorta;
+    private JTextField txtNome;
     
 }
 
 
+
+//!!!!! http://www.devmedia.com.br/como-criar-um-chat-multithread-com-socket-em-java/33639
 
 //        
 //        ObjectInputStream resultado = new ObjectInputStream(cliente.getInputStream());
