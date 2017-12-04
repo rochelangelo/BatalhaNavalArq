@@ -40,23 +40,9 @@ import javax.swing.*;
  *
  * @author 20141D12GR0505
  */
-public class ClienteBn extends JFrame implements ActionListener, KeyListener {
+public class ClienteBn {
 
-    private static final long serialVersionUID = 1L;
-    private JTextArea texto;
-    private JTextField txtMsg;
-    private JButton btnSend;
-    private JButton btnSair;
-    private JLabel lblHistorico;
-    private JLabel lblMsg;
-    private JPanel pnlContent;
-    private Socket socket;
-    private OutputStream ou;
-    private Writer ouw;
-    private BufferedWriter bfw;
-    private JTextField txtIP;
-    private JTextField txtPorta;
-    private JTextField txtNome;
+    String h = "Felipe é maravilhoso kjkjkjk";
     
 }
 
